@@ -1,7 +1,8 @@
 // --- Displays the current day at the top of the calender ---
+let today = moment()
 $("#currentDay").text(moment().format("dddd, Do MMMM YYYY"));
 
-// --- array for setting and storing the hours on display in the calendar ---
+// --- array for setting and storing the hours on display in the timeblocks ---
 // sets the starting hour, and the number of timeblocks in the calendar
 let startingHour = 9;
 let timeblocksAmount = 9;
@@ -14,8 +15,8 @@ for (let hour = startingHour; hour < startingHour + timeblocksAmount; hour++) {
 
 // --- Codes for displaying timeblocks ---
 for (let i = 0; i < timeblocksAmount; i++) {
-    
-    let hourInMoment = moment().set({"h": hours[i], "s": 0, "ms": 0});
+
+    let hourInMoment = moment().set({ "h": hours[i], "s": 0, "ms": 0 });
 
     let $block = $("<div>");
     $block.attr("class", "row");
@@ -56,16 +57,4 @@ $("button").on("click", function (event) {
     let $eventTime = $(event.target).parentsUntil(".container").children(".hour").attr("data-time");
 
     localStorage.setItem($eventTime, $eventDescription);
-    console.log(localStorage.getItem($eventTime));
 })
-
-
-
-
-
-// Allow a user to enter an event when they click a timeblock
-
-// Save the event in local storage when the save button is clicked in that timeblock.
-
-// Persist events between refreshes of a page
-
