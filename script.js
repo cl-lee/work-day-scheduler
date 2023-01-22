@@ -20,16 +20,14 @@ $("#currentDay").text(today.format("dddd, Do MMMM YYYY"));
 // codes for a timeblock
 for (let j = 0; j < timeblocksQuantity; j++) {
 
-    let hoursInMoment = moment().set({'hour': hours[j], 'minute': 0, 'second': 0})
-
     let $block = $("<div>");
     $block.attr("class", "row");
     $(".container").append($block);
 
     let $hour = $("<time>");
-    $hour.text(hoursInMoment.format("hA"));
+    $hour.text(hours[j]);
     $hour.attr("class", "hour col-1");
-    $hour.attr("data-time", hoursInMoment.format("hA"))
+    $hour.attr("data-time", hours[j])
     $block.append($hour);
 
     let $eventDescriptionEL = $("<textarea>");
