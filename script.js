@@ -1,6 +1,14 @@
+let hours = [9];
+
+// for loop to set the hours on display in the calendar
+for (let i = 1; i < 9; i++) {
+    const hour = hours[0]+i;
+    hours.push(hour);
+}
+
 // Display the current day at the top of the calender
-let today = moment()
-$("#currentDay").text(today.format("dddd, Do MMMM YYYY"))
+let today = moment();
+$("#currentDay").text(today.format("dddd, Do MMMM YYYY"));
 
 // Present timeblocks for standard business hours when the user scrolls down.
 
@@ -39,8 +47,18 @@ $("button").on("click", function(event) {
 })
 
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+if (today.isSame($firstHour, "hour")) {
+    console.log("true");
+} else {
+    console.log("false");
+}
+
 if (today.isAfter($firstHour, "hour")) {
     $eventDescriptionEL.addClass("past");
+} else if (today.isSame($firstHour, "hour")) {
+    $eventDescriptionEL.addClass("present");
+} else {
+    $eventDescriptionEL.addClass("future");
 }
 
 
