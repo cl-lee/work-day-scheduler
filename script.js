@@ -17,16 +17,16 @@ for (let hour = startingHour; hour < startingHour + timeblocksAmount; hour++) {
 // codes for a timeblock
 for (let i = 0; i < timeblocksAmount; i++) {
     
-    let hourInMoment = moment().set({"h": hours[i], "s": 0, "ms": 0}).format("hA");
+    let hourInMoment = moment().set({"h": hours[i], "s": 0, "ms": 0});
 
     let $block = $("<div>");
     $block.attr("class", "row");
     $(".container").append($block);
 
     let $hour = $("<time>");
-    $hour.text(hourInMoment);
+    $hour.text(hourInMoment.format("hA"));
     $hour.attr("class", "hour col-1");
-    $hour.attr("data-time", hourInMoment);
+    $hour.attr("data-time", hourInMoment.format("hA"));
     $block.append($hour);
 
     let $eventDescriptionEL = $("<textarea>")
