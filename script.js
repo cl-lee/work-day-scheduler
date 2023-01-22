@@ -17,27 +17,34 @@ $hour.attr("class", "hour col-1");
 $hour.attr("data-time", $firstHour.format("hA"))
 $block.append($hour);
 
-let $eventDescription = $("<textarea>");
-$eventDescription.text("testing");
-$eventDescription.attr("class", "description col-10");
-$block.append($eventDescription);
+let $eventDescriptionEL = $("<textarea>");
+$eventDescriptionEL.text("testing");
+$eventDescriptionEL.attr("class", "description col-10");
+$block.append($eventDescriptionEL);
 
 let $saveButton = $("<button>");
 let $buttonIcon = $("<i>");
-$buttonIcon.attr("class", "fas fa-save");
+$buttonIcon.attr("class", "fas fa-save saveAction");
 $saveButton.append($buttonIcon);
-$saveButton.attr("class", "saveBtn col-1");
+$saveButton.attr("class", "saveBtn col-1 saveAction");
 $block.append($saveButton);
 
 // stores event and time when clicking on the "save" button
 $("button").on("click", function(event) {
-    console.log($(event.target).siblings("textarea").val());
-    console.log($(event.target).siblings("time").attr("data-time"));
+
+    let $eventDescription = $(event.target).parentsUntil(".container").children("textarea").val();
+    let $eventTime = $(event.target).parentsUntil(".container").children(".hour").attr("data-time");
+    
+    localStorage.setItem($eventTime,$eventDescription);
+    console.log(localStorage.getItem($eventTime));
 })
 
-
-
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+if (today.isAfter($firstHour, "hour")) {
+    $eventDescriptionEL.addClass("past");
+}
+
+
 
 // Allow a user to enter an event when they click a timeblock
 
