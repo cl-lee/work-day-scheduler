@@ -1,6 +1,5 @@
-// --- Display the current day at the top of the calender ---
-let today = moment();
-$("#currentDay").text(today.format("dddd, Do MMMM YYYY"));
+// --- Displays the current day at the top of the calender ---
+$("#currentDay").text(moment().format("dddd, Do MMMM YYYY"));
 
 // --- array for setting and storing the hours on display in the calendar ---
 // sets the starting hour, and the number of timeblocks in the calendar
@@ -13,8 +12,7 @@ for (let hour = startingHour; hour < startingHour + timeblocksAmount; hour++) {
     hours.push(hour);
 }
 
-// --- Present timeblocks for standard business hours when the user scrolls down. ---
-// codes for a timeblock
+// --- Codes for displaying timeblocks ---
 for (let i = 0; i < timeblocksAmount; i++) {
     
     let hourInMoment = moment().set({"h": hours[i], "s": 0, "ms": 0});
