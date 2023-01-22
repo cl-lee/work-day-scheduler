@@ -1,40 +1,32 @@
 # Work Day Scheduler
 ## Description
-Welcome to the [Work Day Scheduler](https://cl-lee.github.io/work-day-scheduler/) repo! This project features a daily planner application, which can be used to manage time on a 9am to 6pm work day.
+Welcome to the [Work Day Scheduler](https://cl-lee.github.io/work-day-scheduler/) repo! This project features a daily planner application to help employees manage their time on a 9am to 6pm work day.
 
 ## Prerequisites
 A web browser is required to access the application.
 
 ## Usage
-- ### Application link
-    The application can be accessed through the following URL: https://cl-lee.github.io/work-day-scheduler/.  
-    ![The application web page](./assets/README/start-screen.png)  
+### Application link  
+The application can be accessed through the following URL: https://cl-lee.github.io/work-day-scheduler/.  
+![The application web page](./assets/start-screen.png)  
 
-- ### Start the quiz
-    To start the quiz, users can click on the "Start Quiz" button  
-    ![The "Start Quiz" button](./assets/README/start-quiz.png)
+### Application layout
+- #### The header
+    At the top of the application web page is the header. Inside the header is a short description of this app and today's date.  
+    ![The application header](./assets/header.png)
 
-- ### Time left
-    After starting the quiz, the countdown timer will start. The timer can be found on the top right corner of the quiz questions page.  
-    ![The quiz timer](./assets/README/quiz-timer.png)
+- #### The main section
+    The main section contains the planner itself. In the planner are nine hourly timeblocks starting from 9am and ending at 5pm. Inside each timeblock are the hour, a textbox and a save button.  
+    ![The main section](./assets/main.png)
+    - The hour: Found on the left in the timeblock, it shows the corresponding hour of the timeblock
+    - The textbox: Found in the middle, for entering and showing event or task item(s)
+    - The save button: for saving entries in the textbox  
+    ![A timeblock](./assets/timeblock.png)
 
-- ### Answering the questions
-    Challengers can click on one of the four choices to answer a question. Clicking of any of the four choices will lead to the next question.  
-    ![The question choices](./assets/README/choices.png)
+### Application usage
+- #### Saving and viewing a task/event
+    Users can enter task or event item(s) in a timeblock's text box. They can then click on the save button to store the item(s) on their machines. Once saved, the item(s) will remain in the timeblock after restarting the application web page.  
 
-- ### Answers feedback
-    After answering a question, a feedback will be displayed in the next page to indicate if the question was answered correctly. The feedback will render briefly under the question choices.   
-    - A "***Correct!***" message will be displayed for correct answers  
-    - A "***Wrong!***" message will be displayed for incorrect answers  
-    ![The question feedback](./assets/README/feedback.png)
-
-- ### Quiz completed
-    After answering all the questions, the participant will be redirected to the end screen page with their final score displayed. Participants can save their scores by entering their initials and clicking on the "submit" button.
-    ![Quiz completed - the final score page](./assets/README/end-screen.png)
-
-- ### Highscores
-    After submitting the participant's initials and scores, the page will be redirected to the Highscores page.
-    - Users can view their saved highscores here
-    - They can go back to the quiz start page with the "Go Back" button
-    - The highscores can be cleared with the "Clear Highscores" button
-    ![The Highscores page](./assets/README/highscores.png)
+- #### The past, current and future hours
+    The timeblocks' textbox features a colour-code function based on the current time. Timeblocks with hours gone by will have their textboxes highlighted in grey, the current hour in red, and future hours in green.  
+    ![The timeblock's colour feature](./assets/colour-code.jpg)
