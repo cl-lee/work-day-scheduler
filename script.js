@@ -18,8 +18,8 @@ $hour.attr("data-time", $firstHour.format("hA"))
 $block.append($hour);
 
 let $eventDescriptionEL = $("<textarea>");
-$eventDescriptionEL.text("testing");
 $eventDescriptionEL.attr("class", "description col-10");
+$eventDescriptionEL.text(localStorage.getItem($hour.attr("data-time")));
 $block.append($eventDescriptionEL);
 
 let $saveButton = $("<button>");
@@ -36,7 +36,6 @@ $("button").on("click", function(event) {
     let $eventTime = $(event.target).parentsUntil(".container").children(".hour").attr("data-time");
     
     localStorage.setItem($eventTime,$eventDescription);
-    console.log(localStorage.getItem($eventTime));
 })
 
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
