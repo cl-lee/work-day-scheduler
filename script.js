@@ -1,8 +1,11 @@
+// --- array for setting and storing the hours on display in the calendar ---
+// sets the starting hour, and the number of timeblocks in the calendar
 let hours = [9];
+let timeblocksQuantity = 9;
 
-// for loop to set the hours on display in the calendar
-for (let i = 1; i < 9; i++) {
-    const hour = hours[0]+i;
+// stores timeblock hours in the hours array
+for (let i = 1; i < timeblocksQuantity; i++) {
+    const hour = hours[0] + i;
     hours.push(hour);
 }
 
@@ -13,16 +16,15 @@ $("#currentDay").text(today.format("dddd, Do MMMM YYYY"));
 // Present timeblocks for standard business hours when the user scrolls down.
 
 // codes for a timeblock
-let $firstHour = moment().hour(9).minute(0).second(0);
 
 let $block = $("<div>");
 $block.attr("class", "row");
 $(".container").append($block);
 
 let $hour = $("<time>");
-$hour.text($firstHour.format("Ha"));
+$hour.text(hours[0].format("Ha"));
 $hour.attr("class", "hour col-1");
-$hour.attr("data-time", $firstHour.format("hA"))
+$hour.attr("data-time", hours[0].format("hA"))
 $block.append($hour);
 
 let $eventDescriptionEL = $("<textarea>");
@@ -38,24 +40,24 @@ $saveButton.attr("class", "saveBtn col-1 saveAction");
 $block.append($saveButton);
 
 // stores event and time when clicking on the "save" button
-$("button").on("click", function(event) {
+$("button").on("click", function (event) {
 
     let $eventDescription = $(event.target).parentsUntil(".container").children("textarea").val();
     let $eventTime = $(event.target).parentsUntil(".container").children(".hour").attr("data-time");
-    
-    localStorage.setItem($eventTime,$eventDescription);
+
+    localStorage.setItem($eventTime, $eventDescription);
 })
 
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
-if (today.isSame($firstHour, "hour")) {
+if (today.isSame(hours[0], "hour")) {
     console.log("true");
 } else {
     console.log("false");
 }
 
-if (today.isAfter($firstHour, "hour")) {
+if (today.isAfter(hours[0], "hour")) {
     $eventDescriptionEL.addClass("past");
-} else if (today.isSame($firstHour, "hour")) {
+} else if (today.isSame(hours[0], "hour")) {
     $eventDescriptionEL.addClass("present");
 } else {
     $eventDescriptionEL.addClass("future");
